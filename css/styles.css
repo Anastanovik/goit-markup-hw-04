@@ -35,6 +35,8 @@ img {
 .header {
     background-color: #ffffff;
     border-bottom: 1px solid #e7e9fc;
+    box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+
 }
 
 .header .container {
@@ -61,6 +63,7 @@ img {
     margin: 0;
     padding: 0;
 }
+
 
 /* Контакти праворуч */
 .contacts {
@@ -92,34 +95,118 @@ img {
 .nav-link:hover,
 .nav-link:focus,
 .contacts-link:hover,
-.contacts-link:focus {
+.contacts-link:focus,
+.nav-link.current {
     color: #404bbf;
 }
 
-/* FOOTER */
 .footer {
     background-color: #2e2f42;
     padding: 100px 0;
 }
 
 .footer .container {
-    flex-direction: column;
+    max-width: 1158px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 120px;
+    /* відстань між лівим і правим блоком */
     align-items: flex-start;
+    /* верхній край лівого блоку */
 }
 
+/* Лівий блок */
+.footer-left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Спеціально для футерного лого */
+.footer-logo {
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.17;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #4d5ae5;
+    text-decoration: none;
+    margin-bottom: 17.5px;
+    /* відстань між лого і текстом */
+    display: inline-block;
+    /* щоб margin спрацьовував */
+}
+
+.logo-span-light {
+    color: #f4f4fd;
+}
 
 .footer-text {
-    width: 264px;
     font-size: 16px;
     line-height: 1.5;
-    letter-spacing: 0.02em;
     color: #f4f4fd;
-    margin: 0;
+    max-width: 264px;
 }
 
-footer .footer-logo {
-    display: inline-block !important;
-    margin-bottom: 16px !important;
+/* Права частина */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* вирівнювання по верхньому краю */
+}
+
+.footer-social-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    margin-bottom: 16px;
+    /* відстань між заголовком і іконками */
+}
+
+.footer-social-list {
+    display: flex;
+    gap: 16px;
+    /* відстань між кружечками */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* Кружечки іконок */
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #4D5AE5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-circle svg {
+    width: 16px;
+    height: 16px;
+    fill: #F4F4FD;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-circle:hover {
+    background-color: #31D0AA;
+}
+
+.icon-circle:hover svg {
+    fill: #F4F4FD;
+}
+
+.footer a.logo {
+    display: inline-block;
+    margin-bottom: 16px;
 }
 
 /* LOGO */
@@ -150,12 +237,25 @@ footer .footer-logo {
     letter-spacing: 0.02em;
     color: #2e2f42;
     text-decoration: none;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link:hover,
-.nav-link:focus {
-    color: #404bbf;
+.nav-link.current{
+position: relative;
 }
+.nav-link.current::after {
+content: " ";
+position: absolute;
+left: 0;
+bottom: -1px;
+width: 100%;
+height: 4px;
+border-radius: 2px;
+
+background-color: #404BBF;
+}
+
 
 /* CONTACTS */
 .contacts {
@@ -168,6 +268,7 @@ footer .footer-logo {
     letter-spacing: 0.02em;
     color: #434455;
     text-decoration: none;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-link:hover,
@@ -203,6 +304,14 @@ footer .footer-logo {
     align-items: center;
     text-align: center;
     padding: 188px 0;
+    background-image: 
+    linear-gradient(rgba(46, 47, 66, 0.70),
+    rgba(46, 47, 66, 0.70)),
+    url("../images/hero-bg.jpg/herobg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
 }
 
 .hero-title {
@@ -256,14 +365,16 @@ footer .footer-logo {
     padding: 0;
 }
 
+/*
 .features-list .features-item:first-child {
 width: calc((100% - 72px)/4);
-}
+} 
 
 .features-item {
     flex: 1 1 calc((100% - 90px)/4);
     box-sizing: border-box;
 }
+*/ 
 
 .feature-title {
     font-weight: 500;
@@ -279,6 +390,31 @@ width: calc((100% - 72px)/4);
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
+}
+
+.features-icon-box {
+    width: 264px;
+    height: 112px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 8px;
+
+    border-radius: 4px;
+    border: 1px solid #8e8f99;
+    background-color: #f4f4fd;
+}
+
+.features-icon {
+    width: 64px;
+    height: 64px;
+    fill: currentColor;
+}
+
+.features-item {
+    width: 264px;
 }
 
 /* TEAM SECTION */
@@ -312,8 +448,48 @@ width: calc((100% - 72px)/4);
 
 .team-card-content {
     padding-top: 32px;
-    padding-bottom: 32px;
 }
+
+/* Контейнер для іконок соцмереж */
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    /* відстань між кружечками */
+    margin-top: 8px;
+    padding-bottom: 32px;
+    /* відстань між текстом і іконками */
+}
+
+/* Кружечки з іконками */
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #4D5AE5;
+    /* колір кружечка */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-circle svg {
+    fill: #F4F4FD;
+    /* колір іконки */
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-icon:hover .icon-circle {
+    background-color: #404BBF;
+    /* колір кружечка при ховері */
+}
+
+/*.social-icon:hover .icon-circle svg {
+    fill: #F4F4FD;
+}
+    /* колір іконки при ховері */
+
 
 /* PORTFOLIO SECTION */
 .portfolio.section {
@@ -326,6 +502,7 @@ width: calc((100% - 72px)/4);
     margin-bottom: 72px;
 }
 
+/* Список карток */
 .portfolio-list {
     display: flex;
     flex-wrap: wrap;
@@ -336,21 +513,32 @@ width: calc((100% - 72px)/4);
     justify-content: flex-start;
 }
 
+/* Картка */
 .portfolio-item {
-    flex: 0 0 calc((100% - 48px)/3);
+    flex: 0 0 calc((100% - 48px) / 3);
     box-sizing: border-box;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.portfolio-item:hover {
+    box-shadow: 0px 2px 1px rgba(46, 47, 66, 0.08),
+        0px 1px 1px rgba(46, 47, 66, 0.16),
+        0px 1px 6px rgba(46, 47, 66, 0.08);
+}
+
+/* Картинка всередині картки */
 .portfolio-item img {
     width: 360px;
     height: 300px;
-    flex-shrink: 0;
     display: block;
+    flex-shrink: 0;
 }
 
+
+/* Контент під картинкою */
 .portfolio-card-content {
     display: flex;
     flex-direction: column;
@@ -358,11 +546,10 @@ width: calc((100% - 72px)/4);
     align-items: flex-start;
     padding: 32px 16px;
     gap: 8px;
-    flex-shrink: 0;
-    align-self: stretch;
     border-left: 1px solid #E7E9FC;
     border-right: 1px solid #E7E9FC;
     border-bottom: 1px solid #E7E9FC;
+    background-color: white;
 }
 
 .portfolio-item .feature-title {
@@ -371,8 +558,53 @@ width: calc((100% - 72px)/4);
 
 .portfolio-item .feature-text {
     margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #434455;
 }
+
+/* Обгортка картинки для overlay */
+.portfolio-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Overlay поверх картинки */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4D5AE5;
+    transform: translateY(100%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: flex-start;
+    /* текст зверху */
+    justify-content: center;
+    /* по центру горизонтально */
+    text-align: center;
+}
+
+/* Внутрішній текст overlay */
+.overlay-text {
+    padding: 40px 32px;
+    color: #F4F4FD;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+}
+
+/* Hover на картці - overlay виїжджає */
+.portfolio-item:hover .overlay {
+    transform: translateY(0);
+}
+
+/*
 .footer a.logo {
     display: inline-block;
     margin-bottom: 16px;
 }
+    */
+    
