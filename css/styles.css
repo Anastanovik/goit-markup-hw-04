@@ -124,7 +124,7 @@ img {
     color: #4d5ae5;
     text-decoration: none;
     display: inline-block;
-    /*margin-bottom: 16px;*/
+    
 }
 
 .footer-logo-span {
@@ -136,6 +136,7 @@ img {
     line-height: 1.5;
     color: #f4f4fd;
     max-width: 264px;
+    margin-bottom: 16px;
 }
 
 /* RIGHT BLOCK */
