@@ -111,8 +111,10 @@ img {
     padding: 0 15px;
     display: flex;
     justify-content: flex-start;
-    gap: 120px; /* відстань між лівим і правим блоком */
+    gap: 120px;
     align-items: flex-start; /* верхній край лівого блоку */
+    align-items: baseline;
+    margin-right: 120px
 }
 
 /* Лівий блок */
@@ -159,7 +161,7 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #ffffff;
-    margin-bottom: 16px; /* відстань між заголовком і іконками */
+    margin-bottom: 16px;
 }
 
 .footer-social-list {
@@ -190,7 +192,8 @@ img {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-circle:hover {
+.icon-circle:hover,
+.icon-circle:focus {
     background-color: #31D0AA;
 }
 
