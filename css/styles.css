@@ -100,30 +100,22 @@ img {
     color: #404bbf;
 }
 
+/* FOOTER */
 .footer {
     background-color: #2e2f42;
     padding: 100px 0;
 }
 
-.footer .container {
-    max-width: 1158px;
-    margin: 0 auto;
-    padding: 0 15px;
+.footer-container {
     display: flex;
-    justify-content: flex-start;
-    gap: 120px;
-    align-items: flex-start; /* верхній край лівого блоку */
     align-items: baseline;
-    margin-right: 120px
 }
 
-/* Лівий блок */
+/* LEFT BLOCK */
 .footer-left {
-    display: flex;
-    flex-direction: column;
+    margin-right: 120px;
 }
 
-/* Спеціально для футерного лого */
 .footer-logo {
     font-family: "Raleway", sans-serif;
     font-weight: 700;
@@ -133,11 +125,11 @@ img {
     text-transform: uppercase;
     color: #4d5ae5;
     text-decoration: none;
-    margin-bottom: 17.5px; /* відстань між лого і текстом */
-    display: inline-block; /* щоб margin спрацьовував */
+    display: inline-block;
+    /*margin-bottom: 16px;*/
 }
 
-.logo-span-light {
+.footer-logo-span {
     color: #f4f4fd;
 }
 
@@ -148,13 +140,7 @@ img {
     max-width: 264px;
 }
 
-/* Права частина */
-.footer-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* вирівнювання по верхньому краю */
-}
-
+/* RIGHT BLOCK */
 .footer-social-title {
     font-size: 16px;
     font-weight: 500;
@@ -166,18 +152,21 @@ img {
 
 .footer-social-list {
     display: flex;
-    gap: 16px; /* відстань між кружечками */
+    gap: 16px;
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
-    
 }
 
-/* Кружечки іконок */
-.icon-circle {
+.footer-social-item {
     width: 40px;
     height: 40px;
-    background-color: #4D5AE5;
+}
+
+.footer-social-link {
+    width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -185,25 +174,13 @@ img {
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.icon-circle svg {
-    width: 16px;
-    height: 16px;
-    fill: #F4F4FD;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.footer-social-link:hover,
+.footer-social-link:focus {
+    background-color: #31d0aa;
 }
 
-.icon-circle:hover,
-.icon-circle:focus {
-    background-color: #31D0AA;
-}
-
-.icon-circle:hover svg {
-    fill: #F4F4FD;
-}
-
-.footer a.logo {
-    display: inline-block;
-    margin-bottom: 16px;
+.footer-social-icon {
+    fill: #f4f4fd;
 }
 
 /* LOGO */
@@ -296,23 +273,25 @@ background-color: #404BBF;
 /* HERO SECTION */
 .hero {
     background-color: #2e2f42;
-   
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
+    max-width: 1440px;
+    /* ✔️ обмеження фону */
+    margin: 0 auto;
+    /* ✔️ по центру */
+
     padding: 188px 0;
-    background-image: 
-    linear-gradient(rgba(46, 47, 66, 0.70),
-    rgba(46, 47, 66, 0.70)),
-    url("../images/hero-bg.jpg/herobg.jpg");
+
+    background-image:
+        linear-gradient(rgba(46, 47, 66, 0.7),
+            rgba(46, 47, 66, 0.7)),
+        url("../images/hero-bg.jpg/herobg.jpg");
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
-   
-    }
+
+    text-align: center;
+}
 
 
 .hero-title {
